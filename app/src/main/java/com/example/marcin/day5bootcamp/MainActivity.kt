@@ -15,11 +15,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initRecyclerView()
+        println(recyclerView.adapter.itemCount)
+
+    }
+
+    fun initRecyclerView(){
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         val adapter = MyAdapter(this, {startNewActivity(this)})
         recyclerView.adapter = adapter
-        println(recyclerView.adapter.itemCount)
-
     }
 
     fun startNewActivity(context: Context){
